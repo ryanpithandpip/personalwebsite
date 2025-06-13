@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Farley - tech writer for software companies</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .dos-header {
+            margin-bottom: 20px;
+            padding-bottom: 0px;
+        }
+
+        .dos-prompt {
+            color: #EFEFEF;
+            margin-bottom: 10px;
+        }
+
+        .dos-prompt::before {
+            content: "C:\\>";
+            margin-right: 10px;
+        }
+
+        .dos-content {
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .dos-content ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .dos-content ul li::before {
+            content: "";
+        }
+
+        a {
+            color: #EFEFEF;
+            text-decoration: none;
+        }
+
+        a::before {
+            content: "<";
+            margin-right: 2px;
+        }
+
+        a::after {
+            content: ">";
+            margin-left: 2px;
+        }
+
+        a:hover {
+            background-color: #EFEFEF;
+            color: #000000;
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dos-header">
+            <h1>Hi. I'm Ryan<span class="blink">_</span></h1>
+        </div>
+
+        <div class="dos-content">
+            I write, blogs mostly, for software companies.
+        </div>
+
+        <div class="dos-content">
+            <p>Most of my clients are founder-led operations with primarily dev audiences.</p>
+              <p>My favorite topic to write about is tech history, like:</p>
+            <ul>
+                <li><a href="https://buttondown.com/blog/internet-etymology"> Early-internet neologisms </a></li>
+                <li><a href="https://pithandpip.com/blog/why-write-about-tech-history"> Online archaeology </a></li>
+                <li><a href="https://buttondown.com/suchbadtechads"> Goofy ads from 90s computer magazines </a></li>
+            </ul>
+        </div>
+
+        <div class="dos-content">
+            <p>But plain-old app guides and documentation are firmly in my wheelhouse as well, such as:</p>
+            <ul>
+                <li><a href="https://assistivlabs.com/articles/manual-accessibility-testing-developers"> Accessibility testing for devs </a></li>
+                <li><a href="https://screencloud.com/digital-signage/css-animations-digital-signage"> CSS + webhooks for digital signage </a></li>
+                <li><a href="https://www.fillout.com/blog/hr-forms-send-and-automate"> Creating better HR forms </a></li>
+            </ul>
+        </div>
+
+        <div class="dos-header">
+            <h3><a href="mailto:ryan@ryanfarley.com"> Email me </a> or <a href="https://pithpip.fillout.com/t/fZjzoQRGWmus"> book a call ></a> on my calendar if you'd like to work together.</h3>
+        </div>
+    </div>
+</body>
+</html> 
