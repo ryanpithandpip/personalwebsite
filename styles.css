@@ -1,0 +1,131 @@
+/* Global Styles for Ryan Farley's Website */
+
+/* Base styles */
+body {
+    background-color: #000000;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* DOS-style headers and content */
+.dos-header {
+    margin: 10px 0;
+    line-height: 1.5;
+    letter-spacing: 0.035em;
+}
+
+.dos-content {
+    font-weight: normal;
+    line-height: 1.5;
+    letter-spacing: 0.035em;
+}
+
+.dos-content p {
+    margin: 2em 0;
+}
+
+/* List styling - no bullets by default, bullets only on AI page */
+.dos-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.ai-show-hn-data .dos-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Links */
+a {
+    color: #EFEFEF;
+    text-decoration: none;
+}
+
+a::before {
+    content: "<";
+    margin-right: 2px;
+}
+
+a::after {
+    content: ">";
+    margin-left: 2px;
+}
+
+a:hover {
+    background-color: #EFEFEF;
+    color: #000000;
+}
+
+/* Blinking cursor animation */
+.blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Navigation */
+.back-link {
+    margin-bottom: 30px;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+th, td {
+    border: 1px solid #EFEFEF;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+th {
+    background-color: #333;
+    color: #EFEFEF;
+}
+
+tr:nth-child(even) {
+    background-color: #111;
+}
+
+tr:hover {
+    background-color: #222;
+}
+
+/* Code blocks */
+pre {
+    background-color: #111;
+    border: 1px solid #EFEFEF;
+    padding: 15px;
+    overflow-x: auto;
+    margin-left: -20px;
+    width: calc(100% + 20px);
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    color: #EFEFEF;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Chart containers */
+.chart-container {
+    margin: 30px 0;
+} 
