@@ -39,19 +39,19 @@
             <p>Here is the SQL query I ran:</p>
 
             <pre><code class="language-sql">
-    SELECT
-        EXTRACT(YEAR FROM DATETIME(TIMESTAMP_SECONDS(time))) AS year,
-        COUNT(*) AS post_count,
-        AVG(score) AS avg_score,
-        AVG(descendants) AS avg_comments
-    FROM `bigquery-public-data.hacker_news.full`
-    WHERE
-        type = 'story'
-        AND REGEXP_CONTAINS(title, r'^Show HN:')
-        AND time &gt;= UNIX_SECONDS(TIMESTAMP(DATE_SUB(CURRENT_DATE(), INTERVAL 8 YEAR)))
-        AND deleted IS NULL
-    GROUP BY year
-    ORDER BY year DESC
+SELECT
+    EXTRACT(YEAR FROM DATETIME(TIMESTAMP_SECONDS(time))) AS year,
+    COUNT(*) AS post_count,
+    AVG(score) AS avg_score,
+    AVG(descendants) AS avg_comments
+FROM `bigquery-public-data.hacker_news.full`
+WHERE
+    type = 'story'
+    AND REGEXP_CONTAINS(title, r'^Show HN:')
+    AND time &gt;= UNIX_SECONDS(TIMESTAMP(DATE_SUB(CURRENT_DATE(), INTERVAL 8 YEAR)))
+    AND deleted IS NULL
+GROUP BY year
+ORDER BY year DESC
             </code></pre>
                 
             <p>And here is the output as of 10am Bangkok time on July 3, 2025:</p>
@@ -102,27 +102,27 @@
             <p>I am going out on a limb and assuming that Show HN posts with ' AI ', ' A.I. ', or 'GPT' in the title, as well as those with '.ai' or 'gpt' in the URL were built with less human elbow grease than those that do not include those keywords. Here is the SQL query that I used:</p>
 
             <pre><code class="language-sql">
-        SELECT
-        EXTRACT(YEAR FROM DATETIME(TIMESTAMP_SECONDS(time))) as year,
-        COUNT(*) as ai_post_count,
-        AVG(score) as avg_score,
-        AVG(descendants) as avg_comments
-      FROM `bigquery-public-data.hacker_news.full`
-      WHERE
-        type = 'story'
-        AND REGEXP_CONTAINS(title, r'^Show HN:')
-        AND (
-          REGEXP_CONTAINS(UPPER(title), r'\bAI\b')
-          OR REGEXP_CONTAINS(UPPER(title), r'\bA\.I\.\b')
-          OR REGEXP_CONTAINS(UPPER(title), r'\bGPT\b')
-          OR REGEXP_CONTAINS(LOWER(url), r'\.ai/')
-          OR REGEXP_CONTAINS(LOWER(url), r'\.ai$')
-          OR REGEXP_CONTAINS(UPPER(url), r'\bGPT\b')
-        )
-      AND time >= UNIX_SECONDS(TIMESTAMP(DATE_SUB(CURRENT_DATE(), INTERVAL 8 YEAR)))
-        AND deleted IS NULL
-      GROUP BY year
-      ORDER BY year DESC
+SELECT
+    EXTRACT(YEAR FROM DATETIME(TIMESTAMP_SECONDS(time))) as year,
+    COUNT(*) as ai_post_count,
+    AVG(score) as avg_score,
+    AVG(descendants) as avg_comments
+FROM `bigquery-public-data.hacker_news.full`
+WHERE
+    type = 'story'
+    AND REGEXP_CONTAINS(title, r'^Show HN:')
+    AND (
+      REGEXP_CONTAINS(UPPER(title), r'\bAI\b')
+      OR REGEXP_CONTAINS(UPPER(title), r'\bA\.I\.\b')
+      OR REGEXP_CONTAINS(UPPER(title), r'\bGPT\b')
+      OR REGEXP_CONTAINS(LOWER(url), r'\.ai/')
+      OR REGEXP_CONTAINS(LOWER(url), r'\.ai$')
+      OR REGEXP_CONTAINS(UPPER(url), r'\bGPT\b')
+    )
+AND time >= UNIX_SECONDS(TIMESTAMP(DATE_SUB(CURRENT_DATE(), INTERVAL 8 YEAR)))
+    AND deleted IS NULL
+GROUP BY year
+ORDER BY year DESC
                 </code></pre>
 
             <p>I am Jack's total lack of surprise:</p>
