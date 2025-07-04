@@ -128,4 +128,17 @@ code {
 /* Chart containers */
 .chart-container {
     margin: 30px 0;
+}
+
+/* Mobile optimizations for charts */
+@media (max-width: 768px) {
+    .chart-container {
+        margin: 20px -10px;
+        overflow-x: auto;
+    }
+    
+    .chart-container canvas {
+        min-width: 300px;
+        max-width: 100%;
+    }
 } 

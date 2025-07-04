@@ -208,6 +208,11 @@
         return x.map(xi => slope * xi + intercept);
       }
 
+      // Helper function for mobile-responsive font sizes
+      function getFontSize(desktopSize, mobileSize) {
+        return window.innerWidth < 768 ? mobileSize : desktopSize;
+      }
+
       // Shared data arrays
       const years = [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 
@@ -243,6 +248,7 @@
         },
         options: {
           responsive: true,
+          maintainAspectRatio: window.innerWidth >= 768,
           plugins: {
             legend: {
               display: false
@@ -251,7 +257,7 @@
               display: true,
               text: 'Show HN Posts by Year (with estimated 2025)',
               color: '#EFEFEF',
-              font: { size: 20 }
+              font: { size: getFontSize(20, 16) }
             }
           },
           scales: {
@@ -260,9 +266,12 @@
                 display: true,
                 text: 'Year',
                 color: '#EFEFEF',
-                font: { size: 16 }
+                font: { size: getFontSize(16, 14) }
               },
-              ticks: { color: '#EFEFEF' },
+              ticks: { 
+                color: '#EFEFEF',
+                font: { size: getFontSize(14, 12) }
+              },
               grid: { color: '#333' }
             },
             y: {
@@ -270,10 +279,13 @@
                 display: true,
                 text: '# of Show HN posts',
                 color: '#EFEFEF',
-                font: { size: 16 }
+                font: { size: getFontSize(16, 14) }
               },
               beginAtZero: true,
-              ticks: { color: '#EFEFEF' },
+              ticks: { 
+                color: '#EFEFEF',
+                font: { size: getFontSize(14, 12) }
+              },
               grid: { color: '#333' }
             }
           }
@@ -312,6 +324,7 @@
         },
         options: {
           responsive: true,
+          maintainAspectRatio: window.innerWidth >= 768,
           plugins: {
             legend: {
               display: false
@@ -320,32 +333,38 @@
               display: true,
               text: '# of AI-related Show HN posts (with estimated 2025)',
               color: '#EFEFEF',
-              font: { size: 20 }
+              font: { size: getFontSize(20, 16) }
             }
           },
-          scales: {
-            x: {
-              title: {
-                display: true,
-                text: 'Year',
-                color: '#EFEFEF',
-                font: { size: 16 }
+                      scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Year',
+                  color: '#EFEFEF',
+                  font: { size: getFontSize(16, 14) }
+                },
+                ticks: { 
+                  color: '#EFEFEF',
+                  font: { size: getFontSize(14, 12) }
+                },
+                grid: { color: '#333' }
               },
-              ticks: { color: '#EFEFEF' },
-              grid: { color: '#333' }
-            },
-            y: {
-              title: {
-                display: true,
-                text: '# of AI-related Show HN posts',
-                color: '#EFEFEF',
-                font: { size: 16 }
-              },
-              beginAtZero: true,
-              ticks: { color: '#EFEFEF' },
-              grid: { color: '#333' }
+              y: {
+                title: {
+                  display: true,
+                  text: '# of AI-related Show HN posts',
+                  color: '#EFEFEF',
+                  font: { size: getFontSize(16, 14) }
+                },
+                beginAtZero: true,
+                ticks: { 
+                  color: '#EFEFEF',
+                  font: { size: getFontSize(14, 12) }
+                },
+                grid: { color: '#333' }
+              }
             }
-          }
         }
       });
 
@@ -381,6 +400,7 @@
         },
         options: {
           responsive: true,
+          maintainAspectRatio: window.innerWidth >= 768,
           plugins: {
             legend: {
               display: false
@@ -389,7 +409,7 @@
               display: true,
               text: 'AI Show HNs as % of total',
               color: '#EFEFEF',
-              font: { size: 20 }
+              font: { size: getFontSize(20, 16) }
             }
           },
           scales: {
@@ -453,6 +473,7 @@
         },
         options: {
           responsive: true,
+          maintainAspectRatio: window.innerWidth >= 768,
           plugins: {
             legend: {
               display: false
@@ -461,7 +482,7 @@
               display: true,
               text: 'Avg. Comments per Show HN Post (2017-2025)',
               color: '#EFEFEF',
-              font: { size: 20 }
+              font: { size: getFontSize(20, 16) }
             }
           },
           scales: {
@@ -525,6 +546,7 @@
         },
         options: {
           responsive: true,
+          maintainAspectRatio: window.innerWidth >= 768,
           plugins: {
             legend: {
               display: false
@@ -533,7 +555,7 @@
               display: true,
               text: 'Avg. Points per Show HN Post (2017-2025)',
               color: '#EFEFEF',
-              font: { size: 20 }
+              font: { size: getFontSize(20, 16) }
             }
           },
           scales: {
